@@ -1,0 +1,6 @@
+LDO Reg
+Switching Reg
+Screw Terminal (Figure this out)
+Prongs for battery (Figure this out) (BATTERY FOOTPRINT)
+40-Pin Header connecting VCC and GND
+Circuit Protection IC
