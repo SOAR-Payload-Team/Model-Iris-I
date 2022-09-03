@@ -49,6 +49,23 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
+DocumentPath=UL Components\ul_STEF05PUR\AltiumDesigner\2022-09-02_22-48-17\STEF05PUR.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XJQPRMWV
+
+[Document2]
 DocumentPath=UL Components\ul_TCKE805NA-RF\AltiumDesigner\2022-08-27_03-07-47\TCKE805NA,RF.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -65,7 +82,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PQKVAJIY
 
-[Document2]
+[Document3]
 DocumentPath=UL Components\ul_TCKE805NA-RF\AltiumDesigner\2022-08-27_03-07-47\TCKE805NA,RF.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -82,7 +99,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RFNECIUH
 
-[Document3]
+[Document4]
 DocumentPath=SEDA Components\HLE-120-02-F-DV\HLE-120-02-F-DV\HLE-120-02-F-DV.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -99,7 +116,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GCFHCOEE
 
-[Document4]
+[Document5]
 DocumentPath=UL Components\ul_B220-13-F\AltiumDesigner\2022-08-26_03-43-30\B220-13-F.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -116,7 +133,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VURNUDQT
 
-[Document5]
+[Document6]
 DocumentPath=SEDA Components\HLE-120-02-F-DV\HLE-120-02-F-DV\SAMTEC_HLE-120-02-F-DV.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -133,7 +150,24 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EVBNGPUI
 
-[Document6]
+[Document7]
+DocumentPath=UL Components\ul_STEF05PUR\AltiumDesigner\2022-09-02_22-48-17\STEF05PUR.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CNAMAPER
+
+[Document8]
 DocumentPath=UL Components\ul_B220-13-F\AltiumDesigner\2022-08-26_03-43-30\B220-13-F.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -150,7 +184,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PLTXHYWA
 
-[Document7]
+[Document9]
 DocumentPath=UL Components\ul_LQH2HPN150MJRL\AltiumDesigner\2022-08-26_03-39-54\LQH2HPN150MJRL.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -167,7 +201,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=FHWBNXRZ
 
-[Document8]
+[Document10]
 DocumentPath=UL Components\ul_MIC4690YM\AltiumDesigner\2022-08-26_03-14-41\MIC4690YM.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -184,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ZWGHWMFR
 
-[Document9]
+[Document11]
 DocumentPath=UL Components\ul_LQH2HPN150MJRL\AltiumDesigner\2022-08-26_03-39-54\LQH2HPN150MJRL.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -201,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HNDMTYFM
 
-[Document10]
+[Document12]
 DocumentPath=UL Components\ul_MIC4690YM\AltiumDesigner\2022-08-26_03-14-41\MIC4690YM.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +252,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QTOPIJFM
 
-[Document11]
+[Document13]
 DocumentPath=UL Components\LDO Reg\AltiumDesigner\2022-08-20_23-36-39\REG104FA-3P3&slash_500.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +269,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GMYLDNGY
 
-[Document12]
+[Document14]
 DocumentPath=UL Components\LDO Reg\AltiumDesigner\2022-08-20_23-36-39\REG104FA-3P3&slash_500.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,7 +286,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IVNMIVQL
 
-[Document13]
+[Document15]
 DocumentPath=BatteryBoard.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -269,7 +303,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CJHNTGTK
 
-[Document14]
+[Document16]
 DocumentPath=Assembly.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -286,7 +320,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document17]
 DocumentPath=Documentation.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -303,7 +337,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document18]
 DocumentPath=Fabrication.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -320,7 +354,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document17]
+[Document19]
 DocumentPath=PCB1.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -337,7 +371,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RJHOKYIJ
 
-[Document18]
+[Document20]
 DocumentPath=ActiveBOM.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -354,7 +388,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document21]
 DocumentPath=BatteryBoard.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
