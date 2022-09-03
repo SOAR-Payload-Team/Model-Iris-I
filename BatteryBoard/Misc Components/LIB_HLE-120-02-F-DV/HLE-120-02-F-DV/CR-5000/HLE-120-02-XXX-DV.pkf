@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "HLE-120-02-XXX-DV"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "HLE-120-02-XXX-DV")
+        (spec "default")
+    )
+)

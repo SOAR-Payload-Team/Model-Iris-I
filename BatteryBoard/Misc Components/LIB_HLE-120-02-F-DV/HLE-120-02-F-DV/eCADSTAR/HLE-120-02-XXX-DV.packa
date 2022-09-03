@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "HLE-120-02-F-DV"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-06-19-15:35:08)
+    (mountForm default
+        (footprintRef "HLE-120-02-XXX-DV")
+        (spec "System")
+    )
+)

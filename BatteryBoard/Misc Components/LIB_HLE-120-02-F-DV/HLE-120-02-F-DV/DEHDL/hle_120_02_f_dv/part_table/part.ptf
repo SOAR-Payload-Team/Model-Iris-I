@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'HLE_120_02_F_DV'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "MOUSER_TESTING_PART_NUMBER", "MOUSER_TESTING_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "SAMTEC", "HLE-120-02-F-DV" (!) = "", "HLE-120-02-XXX-DV", "Other", "", "", "HLE-120-02-F-DV", "https://www.arrow.com/en/products/hle-120-02-f-dv/samtec", "", "", "40 Position, Cost Effective Surface Mount Socket, 0.100&quot; Pitch", "http://suddendocs.samtec.com/prints/hle-1xx-02-xxx-dv-xx-xx-xx-mkt.pdf"
+END_PART
+
+END.

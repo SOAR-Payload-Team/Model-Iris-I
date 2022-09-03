@@ -1,0 +1,9 @@
+Manufacturer=SAMTEC
+PartNumber=HLE-120-02-F-DV
+PartCategory=Connector
+PackageCategory=Other
+PinCount=40
+Version=1.1
+Released=2020-06-19 15:35:08
+Downloaded=2022-09-03 23:26:47
+3D=N
