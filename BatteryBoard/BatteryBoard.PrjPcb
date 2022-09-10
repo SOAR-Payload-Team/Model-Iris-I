@@ -134,23 +134,6 @@ GenerateClassCluster=0
 DocumentUniqueId=NXNXTQJV
 
 [Document6]
-DocumentPath=UL Components\ul_BWVS00606028330M00\AltiumDesigner\2022-09-06_00-50-10\BWVS00606028330M00.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=DCQKLUTN
-
-[Document7]
 DocumentPath=C:\Users\Nasih Nazeem\Documents\AltiumLL\SamacSys.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -167,7 +150,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NGLTGAHM
 
-[Document8]
+[Document7]
 DocumentPath=SEDA Components\HLE-120-02-F-DV\HLE-120-02-F-DV\HLE-120-02-F-DV.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -184,7 +167,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GCFHCOEE
 
-[Document9]
+[Document8]
 DocumentPath=UL Components\ul_B220-13-F\AltiumDesigner\2022-08-26_03-43-30\B220-13-F.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -201,7 +184,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VURNUDQT
 
-[Document10]
+[Document9]
 DocumentPath=SEDA Components\HLE-120-02-F-DV\HLE-120-02-F-DV\SAMTEC_HLE-120-02-F-DV.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +201,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=EVBNGPUI
 
-[Document11]
+[Document10]
 DocumentPath=UL Components\ul_AP62200WU-7\AltiumDesigner\2022-09-06_01-51-30\AP62200WU-7.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VDAKOBIC
 
-[Document12]
+[Document11]
 DocumentPath=UL Components\ul_AP62200WU-7\AltiumDesigner\2022-09-06_01-51-30\AP62200WU-7.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HHGPEZWK
 
-[Document13]
+[Document12]
 DocumentPath=UL Components\ul_STEF05PUR\AltiumDesigner\2022-09-02_22-48-17\STEF05PUR.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -268,6 +251,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CNAMAPER
+
+[Document13]
+DocumentPath=C:\Users\Nasih Nazeem\Downloads\Altium_WP-SMRA (rev22a)\WP-SMRA.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=EORYRHUD
 
 [Document14]
 DocumentPath=UL Components\ul_B220-13-F\AltiumDesigner\2022-08-26_03-43-30\B220-13-F.PcbLib
@@ -557,6 +557,23 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
+
+[Document31]
+DocumentPath=C:\Users\Nasih Nazeem\Downloads\Altium_WP-SMRA (rev22a)\WP-SMRA.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=QIOKHYFA
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs\Design Rule Check - PCB1.html
