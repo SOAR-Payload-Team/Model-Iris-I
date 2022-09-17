@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : H:\Github\NasihNazeem\SOAR\Model-Iris-I\BatteryBoard\PCB1.PcbDoc
-Date     : 2022-09-04
-Time     : 12:25:51 PM
+Date     : 2022-09-17
+Time     : 11:32:11 AM
 
 Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
 Rule Violations :0
@@ -15,7 +15,7 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=10mil) (Max=28mil) (Preferred=28mil) (All)
+Processing Rule : Width Constraint (Min=10mil) (Max=28mil) (Preferred=10mil) (All)
 Rule Violations :0
 
 Processing Rule : Routing Layers(All)
