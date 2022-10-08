@@ -610,98 +610,102 @@ GenerateClassCluster=0
 DocumentUniqueId=QIOKHYFA
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs\Design Rule Check - PCB1.html
+DocumentPath=Project Outputs\Design Rule Check - BatteryBoard.html
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs\PCB1.DRR
+DocumentPath=Project Outputs\Design Rule Check - PCB1.html
 DItemRevisionGUID=
 
 [GeneratedDocument3]
-DocumentPath=Project Outputs\PCB1.EXTREP
+DocumentPath=Project Outputs\PCB1.DRR
 DItemRevisionGUID=
 
 [GeneratedDocument4]
-DocumentPath=Project Outputs\PCB1.GBL
+DocumentPath=Project Outputs\PCB1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs\PCB1.GBO
+DocumentPath=Project Outputs\PCB1.GBL
 DItemRevisionGUID=
 
 [GeneratedDocument6]
-DocumentPath=Project Outputs\PCB1.GBP
+DocumentPath=Project Outputs\PCB1.GBO
 DItemRevisionGUID=
 
 [GeneratedDocument7]
-DocumentPath=Project Outputs\PCB1.GBS
+DocumentPath=Project Outputs\PCB1.GBP
 DItemRevisionGUID=
 
 [GeneratedDocument8]
-DocumentPath=Project Outputs\PCB1.GM1
+DocumentPath=Project Outputs\PCB1.GBS
 DItemRevisionGUID=
 
 [GeneratedDocument9]
-DocumentPath=Project Outputs\PCB1.GM2
+DocumentPath=Project Outputs\PCB1.GM1
 DItemRevisionGUID=
 
 [GeneratedDocument10]
-DocumentPath=Project Outputs\PCB1.GM3
+DocumentPath=Project Outputs\PCB1.GM2
 DItemRevisionGUID=
 
 [GeneratedDocument11]
-DocumentPath=Project Outputs\PCB1.GM5
+DocumentPath=Project Outputs\PCB1.GM3
 DItemRevisionGUID=
 
 [GeneratedDocument12]
-DocumentPath=Project Outputs\PCB1.GM13
+DocumentPath=Project Outputs\PCB1.GM5
 DItemRevisionGUID=
 
 [GeneratedDocument13]
-DocumentPath=Project Outputs\PCB1.GM14
+DocumentPath=Project Outputs\PCB1.GM13
 DItemRevisionGUID=
 
 [GeneratedDocument14]
-DocumentPath=Project Outputs\PCB1.GM15
+DocumentPath=Project Outputs\PCB1.GM14
 DItemRevisionGUID=
 
 [GeneratedDocument15]
-DocumentPath=Project Outputs\PCB1.GPB
+DocumentPath=Project Outputs\PCB1.GM15
 DItemRevisionGUID=
 
 [GeneratedDocument16]
-DocumentPath=Project Outputs\PCB1.GPT
+DocumentPath=Project Outputs\PCB1.GPB
 DItemRevisionGUID=
 
 [GeneratedDocument17]
-DocumentPath=Project Outputs\PCB1.GTL
+DocumentPath=Project Outputs\PCB1.GPT
 DItemRevisionGUID=
 
 [GeneratedDocument18]
-DocumentPath=Project Outputs\PCB1.GTO
+DocumentPath=Project Outputs\PCB1.GTL
 DItemRevisionGUID=
 
 [GeneratedDocument19]
-DocumentPath=Project Outputs\PCB1.GTP
+DocumentPath=Project Outputs\PCB1.GTO
 DItemRevisionGUID=
 
 [GeneratedDocument20]
-DocumentPath=Project Outputs\PCB1.GTS
+DocumentPath=Project Outputs\PCB1.GTP
 DItemRevisionGUID=
 
 [GeneratedDocument21]
-DocumentPath=Project Outputs\PCB1.LDP
+DocumentPath=Project Outputs\PCB1.GTS
 DItemRevisionGUID=
 
 [GeneratedDocument22]
-DocumentPath=Project Outputs\PCB1.REP
+DocumentPath=Project Outputs\PCB1.LDP
 DItemRevisionGUID=
 
 [GeneratedDocument23]
-DocumentPath=Project Outputs\PCB1.RUL
+DocumentPath=Project Outputs\PCB1.REP
 DItemRevisionGUID=
 
 [GeneratedDocument24]
+DocumentPath=Project Outputs\PCB1.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument25]
 DocumentPath=Project Outputs\PCB1.TXT
 DItemRevisionGUID=
 
