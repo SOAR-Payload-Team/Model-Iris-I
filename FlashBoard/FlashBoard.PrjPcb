@@ -49,6 +49,40 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
+DocumentPath=SEDA Components\SSM-120-F-DV\SSM-120-X-DV\SSM-120-X-DV.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=UXCGNCIC
+
+[Document2]
+DocumentPath=SEDA Components\SSM-120-F-DV\SSM-120-X-DV\SAMTEC_SSM-120-X-DV.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=KQMGNOAI
+
+[Document3]
 DocumentPath=SEDA Components\HW-20-16-F-D-250-SM\HW-20-16-F-D-250-SM\SAMTEC_HW-20-16-F-D-250-SM.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -65,7 +99,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=JMXKIULL
 
-[Document2]
+[Document4]
 DocumentPath=SEDA Components\HW-20-16-F-D-250-SM\HW-20-16-F-D-250-SM\HW-20-16-F-D-250-SM.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -82,7 +116,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=GQJCXTJI
 
-[Document3]
+[Document5]
 DocumentPath=SEDA Components\TMP117MAIDRVT\TMP117MAIDRVT\TMP117MAIDRVT.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -99,7 +133,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VWNUCWJS
 
-[Document4]
+[Document6]
 DocumentPath=SEDA Components\TMP117MAIDRVT\TMP117MAIDRVT\SON65P200X200X80-7N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -116,7 +150,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=WGVAINTM
 
-[Document5]
+[Document7]
 DocumentPath=SEDA Components\HW-20-XX-XX-D-XXX-XXX\HW-20-XX-XX-D-XXX-XXX\HW-20-XX-XX-D-XXX-XXX.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -133,7 +167,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=OINUQYLP
 
-[Document6]
+[Document8]
 DocumentPath=SEDA Components\HW-20-XX-XX-D-XXX-XXX\HW-20-XX-XX-D-XXX-XXX\SAMTEC_HW-20-XX-XX-D-XXX-XXX.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -150,7 +184,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HAITBMOM
 
-[Document7]
+[Document9]
 DocumentPath=UL Components\ul_W25Q128JVFIQ\AltiumDesigner\2022-08-31_16-47-48\W25Q128JVFIQ.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -167,7 +201,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=REDSGOTK
 
-[Document8]
+[Document10]
 DocumentPath=UL Components\ul_W25Q128JVFIQ\AltiumDesigner\2022-08-31_16-47-48\W25Q128JVFIQ.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -184,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=MGDAIBAE
 
-[Document9]
+[Document11]
 DocumentPath=..\BatteryBoard\UL Components\ul_LQH2HPN150MJRL\AltiumDesigner\2022-08-26_03-39-54\LQH2HPN150MJRL.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -201,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ASBJICTB
 
-[Document10]
+[Document12]
 DocumentPath=..\BatteryBoard\UL Components\ul_LQH2HPN150MJRL\AltiumDesigner\2022-08-26_03-39-54\LQH2HPN150MJRL.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +252,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NAPNRFOF
 
-[Document11]
+[Document13]
 DocumentPath=FlashBoard.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +269,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=CJHNTGTK
 
-[Document12]
+[Document14]
 DocumentPath=Assembly.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,7 +286,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document15]
 DocumentPath=Documentation.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -269,7 +303,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document14]
+[Document16]
 DocumentPath=Fabrication.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -286,7 +320,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document17]
 DocumentPath=Flashboard.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -303,7 +337,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RJHOKYIJ
 
-[Document16]
+[Document18]
 DocumentPath=FlashboardMODELING.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -320,7 +354,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IMQFOPLY
 
-[Document17]
+[Document19]
 DocumentPath=ActiveBOM.BomDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -337,7 +371,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document18]
+[Document20]
 DocumentPath=FlashBoard.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -354,7 +388,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document19]
+[Document21]
 DocumentPath=Gerber_Flash.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -371,7 +405,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document20]
+[Document22]
 DocumentPath=Gerber_NCDrill.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
