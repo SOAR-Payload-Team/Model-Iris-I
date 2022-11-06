@@ -1,0 +1,10 @@
+Board Information Report
+Filename     : C:\Users\Nasih Nazeem\Documents\GitHub\NasihNazeem\SOAR\Model-Iris-I\Model-Iris-I\BatteryBoard\BatteryBoard.PcbDoc
+Date         : 2022-11-05
+Time         : 2:36:24 PM
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 3544milsx3544.001mils
+    Components on board, 36
+count : 2
