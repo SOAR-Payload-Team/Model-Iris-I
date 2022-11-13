@@ -1,10 +1,12 @@
-Output: MultiWire
-Type  : MultiWire
+Output: NC Drill Files
+Type  : NC Drill
 From  : Project [FlashBoard.PrjPcb]
-   Generated File[FlashBoard.NET]
+   Generated File[Flashboard.TXT]
+   Generated File[Flashboard.LDP]
+   Generated File[Flashboard.DRR]
 
 
-Files Generated   : 1
+Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 6:10:05 PM On 2022-09-11
+Finished Output Generation At 8:54:07 PM On 2022-11-12
