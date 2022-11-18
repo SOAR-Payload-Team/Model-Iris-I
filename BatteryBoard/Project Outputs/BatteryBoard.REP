@@ -2,8 +2,105 @@
 FileName = BatteryBoard.GBR
 AutoAperture = True
 *************************************************************
-Generating : Bottom Pad Master
-      File : BatteryBoard.GPB
+Generating : Top Courtyard
+      File : BatteryBoard.GM15
+
+    Adding Layer      : Top Courtyard
+
+
+Used DCodes :
+    D10
+    D46
+*************************************************************
+
+*************************************************************
+Generating : Bottom Assembly
+      File : BatteryBoard.GM14
+
+    Adding Layer      : Bottom Assembly
+
+
+Used DCodes :
+    D10
+    D11
+    D43
+    D44
+    D45
+*************************************************************
+
+*************************************************************
+Generating : Top Assembly
+      File : BatteryBoard.GM13
+
+    Adding Layer      : Top Assembly
+
+
+Used DCodes :
+    D10
+    D11
+*************************************************************
+
+*************************************************************
+Generating : Bottom 3D Body
+      File : BatteryBoard.GM5
+
+    Adding Layer      : Bottom 3D Body
+
+
+Used DCodes :
+    D10
+*************************************************************
+
+*************************************************************
+Generating : Dimensions
+      File : BatteryBoard.GM3
+
+    Adding Layer      : Dimensions
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Route Tool Path
+      File : BatteryBoard.GM2
+
+    Adding Layer      : Route Tool Path
+
+
+Used DCodes :
+*************************************************************
+
+*************************************************************
+Generating : Board
+      File : BatteryBoard.GM1
+
+    Adding Layer      : Board
+
+
+Used DCodes :
+    D12
+*************************************************************
+
+*************************************************************
+Generating : Bottom Overlay
+      File : BatteryBoard.GBO
+
+    Adding Layer      : Bottom Overlay
+
+
+Used DCodes :
+    D11
+    D12
+    D42
+    D43
+*************************************************************
+
+*************************************************************
+Generating : Bottom Paste
+      File : BatteryBoard.GBP
+
+    Adding Layer      : Bottom Paste
 
     Adding Layer      : Bottom Layer
 
@@ -11,66 +108,49 @@ Generating : Bottom Pad Master
 
 
 Used DCodes :
-    D18
-    D21
-    D22
-    D24
-    D25
-    D26
-    D27
+    D13
     D28
-    D29
-    D30
     D31
     D32
     D33
     D34
     D35
+    D36
+    D37
+    D38
+    D40
+    D41
 *************************************************************
 
 *************************************************************
-Generating : Top Pad Master
-      File : BatteryBoard.GPT
+Generating : Bottom Solder
+      File : BatteryBoard.GBS
 
-    Adding Layer      : Top Layer
+    Adding Layer      : Bottom Solder
 
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D18
-    D19
-    D21
-    D22
-*************************************************************
-
-*************************************************************
-Generating : Top Overlay
-      File : BatteryBoard.GTO
-
-    Adding Layer      : Top Overlay
-
-
-Used DCodes :
-    D10
-    D11
-    D12
-*************************************************************
-
-*************************************************************
-Generating : Top Paste
-      File : BatteryBoard.GTP
-
-    Adding Layer      : Top Paste
-
-    Adding Layer      : Top Layer
+    Adding Layer      : Bottom Layer
 
     Adding Layer      : Multi-Layer
 
 
 Used DCodes :
     D13
-    D14
+    D15
+    D16
+    D17
+    D18
+    D28
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+    D37
+    D38
+    D39
+    D40
+    D41
 *************************************************************
 
 *************************************************************
@@ -90,13 +170,57 @@ Used DCodes :
     D15
     D16
     D17
+    D18
 *************************************************************
 
 *************************************************************
-Generating : Bottom Solder
-      File : BatteryBoard.GBS
+Generating : Top Paste
+      File : BatteryBoard.GTP
 
-    Adding Layer      : Bottom Solder
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
+*************************************************************
+
+*************************************************************
+Generating : Top Overlay
+      File : BatteryBoard.GTO
+
+    Adding Layer      : Top Overlay
+
+
+Used DCodes :
+    D10
+    D11
+    D12
+*************************************************************
+
+*************************************************************
+Generating : Top Pad Master
+      File : BatteryBoard.GPT
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D19
+    D20
+    D22
+    D23
+*************************************************************
+
+*************************************************************
+Generating : Bottom Pad Master
+      File : BatteryBoard.GPB
 
     Adding Layer      : Bottom Layer
 
@@ -104,11 +228,14 @@ Generating : Bottom Solder
 
 
 Used DCodes :
-    D13
-    D15
-    D16
-    D17
+    D19
+    D22
+    D23
+    D25
     D26
+    D27
+    D28
+    D29
     D30
     D31
     D32
@@ -116,110 +243,6 @@ Used DCodes :
     D34
     D35
     D36
-    D37
-    D38
-    D39
-    D40
-*************************************************************
-
-*************************************************************
-Generating : Bottom Paste
-      File : BatteryBoard.GBP
-
-    Adding Layer      : Bottom Paste
-
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D13
-    D26
-    D30
-    D31
-    D32
-    D33
-    D34
-    D35
-    D36
-    D38
-    D39
-    D40
-*************************************************************
-
-*************************************************************
-Generating : Bottom Overlay
-      File : BatteryBoard.GBO
-
-    Adding Layer      : Bottom Overlay
-
-
-Used DCodes :
-    D11
-    D12
-    D41
-    D42
-*************************************************************
-
-*************************************************************
-Generating : Board
-      File : BatteryBoard.GM1
-
-    Adding Layer      : Board
-
-
-Used DCodes :
-    D12
-*************************************************************
-
-*************************************************************
-Generating : Route Tool Path
-      File : BatteryBoard.GM2
-
-    Adding Layer      : Route Tool Path
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Top Assembly
-      File : BatteryBoard.GM13
-
-    Adding Layer      : Top Assembly
-
-
-Used DCodes :
-    D10
-    D11
-*************************************************************
-
-*************************************************************
-Generating : Bottom Assembly
-      File : BatteryBoard.GM14
-
-    Adding Layer      : Bottom Assembly
-
-
-Used DCodes :
-    D10
-    D11
-    D42
-    D43
-    D44
-*************************************************************
-
-*************************************************************
-Generating : Top Courtyard
-      File : BatteryBoard.GM15
-
-    Adding Layer      : Top Courtyard
-
-
-Used DCodes :
-    D10
-    D45
 *************************************************************
 
 *************************************************************
@@ -233,8 +256,7 @@ Generating : Bottom Layer
 
 Used DCodes :
     D12
-    D18
-    D20
+    D19
     D21
     D22
     D23
@@ -250,6 +272,7 @@ Used DCodes :
     D33
     D34
     D35
+    D36
 *************************************************************
 
 *************************************************************
@@ -263,32 +286,11 @@ Generating : Top Layer
 
 Used DCodes :
     D12
-    D18
     D19
     D20
     D21
     D22
     D23
-*************************************************************
-
-*************************************************************
-Generating : Dimensions
-      File : BatteryBoard.GM3
-
-    Adding Layer      : Dimensions
-
-
-Used DCodes :
-*************************************************************
-
-*************************************************************
-Generating : Bottom 3D Body
-      File : BatteryBoard.GM5
-
-    Adding Layer      : Bottom 3D Body
-
-
-Used DCodes :
-    D10
+    D24
 *************************************************************
 
