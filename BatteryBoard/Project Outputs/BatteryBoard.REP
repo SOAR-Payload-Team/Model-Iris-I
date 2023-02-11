@@ -2,6 +2,55 @@
 FileName = BatteryBoard.GBR
 AutoAperture = True
 *************************************************************
+Generating : Top Layer
+      File : BatteryBoard.GTL
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D19
+    D20
+    D21
+    D22
+    D23
+    D24
+*************************************************************
+
+*************************************************************
+Generating : Bottom Layer
+      File : BatteryBoard.GBL
+
+    Adding Layer      : Bottom Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D12
+    D19
+    D21
+    D22
+    D23
+    D24
+    D25
+    D26
+    D27
+    D28
+    D29
+    D30
+    D31
+    D32
+    D33
+    D34
+    D35
+    D36
+*************************************************************
+
+*************************************************************
 Generating : Top Courtyard
       File : BatteryBoard.GM15
 
@@ -38,27 +87,6 @@ Generating : Top Assembly
 Used DCodes :
     D10
     D11
-*************************************************************
-
-*************************************************************
-Generating : Bottom 3D Body
-      File : BatteryBoard.GM5
-
-    Adding Layer      : Bottom 3D Body
-
-
-Used DCodes :
-    D10
-*************************************************************
-
-*************************************************************
-Generating : Dimensions
-      File : BatteryBoard.GM3
-
-    Adding Layer      : Dimensions
-
-
-Used DCodes :
 *************************************************************
 
 *************************************************************
@@ -154,42 +182,6 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Top Solder
-      File : BatteryBoard.GTS
-
-    Adding Layer      : Top Solder
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D13
-    D14
-    D15
-    D16
-    D17
-    D18
-*************************************************************
-
-*************************************************************
-Generating : Top Paste
-      File : BatteryBoard.GTP
-
-    Adding Layer      : Top Paste
-
-    Adding Layer      : Top Layer
-
-    Adding Layer      : Multi-Layer
-
-
-Used DCodes :
-    D13
-    D14
-*************************************************************
-
-*************************************************************
 Generating : Top Overlay
       File : BatteryBoard.GTO
 
@@ -246,38 +238,31 @@ Used DCodes :
 *************************************************************
 
 *************************************************************
-Generating : Bottom Layer
-      File : BatteryBoard.GBL
+Generating : Dimensions
+      File : BatteryBoard.GM3
 
-    Adding Layer      : Bottom Layer
-
-    Adding Layer      : Multi-Layer
+    Adding Layer      : Dimensions
 
 
 Used DCodes :
-    D12
-    D19
-    D21
-    D22
-    D23
-    D24
-    D25
-    D26
-    D27
-    D28
-    D29
-    D30
-    D31
-    D32
-    D33
-    D34
-    D35
-    D36
 *************************************************************
 
 *************************************************************
-Generating : Top Layer
-      File : BatteryBoard.GTL
+Generating : Bottom 3D Body
+      File : BatteryBoard.GM5
+
+    Adding Layer      : Bottom 3D Body
+
+
+Used DCodes :
+    D10
+*************************************************************
+
+*************************************************************
+Generating : Top Solder
+      File : BatteryBoard.GTS
+
+    Adding Layer      : Top Solder
 
     Adding Layer      : Top Layer
 
@@ -285,12 +270,27 @@ Generating : Top Layer
 
 
 Used DCodes :
-    D12
-    D19
-    D20
-    D21
-    D22
-    D23
-    D24
+    D13
+    D14
+    D15
+    D16
+    D17
+    D18
+*************************************************************
+
+*************************************************************
+Generating : Top Paste
+      File : BatteryBoard.GTP
+
+    Adding Layer      : Top Paste
+
+    Adding Layer      : Top Layer
+
+    Adding Layer      : Multi-Layer
+
+
+Used DCodes :
+    D13
+    D14
 *************************************************************
 
