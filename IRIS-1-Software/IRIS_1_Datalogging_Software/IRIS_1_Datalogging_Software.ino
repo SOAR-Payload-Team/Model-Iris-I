@@ -23,14 +23,14 @@
 
 // setting up the state machine enumerator
 enum State_Machine {
-    INITIALIZATION,
-    READ_MEMORY,
-    ERASE_MEMORY,
-    CALIBRATION,
-    PRELAUNCH,
-    LAUNCH,
-    KALMAN_FILTER,
-    POSTLAUNCH
+    INITIALIZATION = 1,
+    READ_MEMORY = 2,
+    ERASE_MEMORY = 3,
+    CALIBRATION = 4,
+    PRELAUNCH = 5,
+    LAUNCH = 6,
+    KALMAN_FILTER = 7,
+    POSTLAUNCH = 8
 };
 
 // offsets generated from CALIBRATION
