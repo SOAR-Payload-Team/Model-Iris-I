@@ -9,26 +9,28 @@
 // including Arduino libraries
 #include "MS5611.h" //used for barometer
 #include <Adafruit_LSM6DSO32.h> //used for IMU
+#include "SPIMemory.h"
+
 #include "FS.h"
 #include "SD_MMC.h"
 
 // defining LED pins
-#define LED_1_PIN 25
-#define LED_2_PIN 26
+#define BLUE_LED_PIN 25
+#define GREEN_LED_PIN 26
 
 // defining SPI pins
 
 
 // setting up the state machine enumerator
 enum State_Machine {
-    INITIALIZATION = 1,
-    READ_MEMORY = 2,
-    ERASE_MEMORY = 3,
-    CALIBRATION = 4,
-    PRELAUNCH = 5,
-    LAUNCH = 6,
-    KALMAN_FILTER = 7,
-    POSTLAUNCH = 8
+    INITIALIZATION,
+    READ_MEMORY,
+    ERASE_MEMORY,
+    CALIBRATION,
+    PRELAUNCH,
+    LAUNCH,
+    KALMAN_FILTER,
+    POSTLAUNCH
 };
 
 // offsets generated from CALIBRATION
@@ -46,8 +48,11 @@ MS5611 MS5611(0x77);
 // setting up IMU library
 Adafruit_LSM6DSO32 dso32;
 
+// setting up flash library
+SPIFlash flash(27);
+
 // Declaring the state variable
-State_Machine state = CALIBRATION;
+State_Machine state = INITIALIZATION;
 
 
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
@@ -209,10 +214,14 @@ void testFileIO(fs::FS &fs, const char * path){
 */
 void setup() {
     // setting up LED pins
-    pinMode(LED_1_PIN, OUTPUT);
-    pinMode(LED_2_PIN, OUTPUT);
-    digitalWrite(LED_1_PIN, LOW);
-    digitalWrite(LED_2_PIN, LOW);
+    pinMode(GREEN_LED_PIN, OUTPUT);
+    pinMode(BLUE_LED_PIN, OUTPUT);
+    digitalWrite(GREEN_LED_PIN, LOW);
+    digitalWrite(BLUE_LED_PIN, LOW);
+
+    // setting up serial
+    Serial.begin(115200);
+    delay(50); // delay to open without errors
 
 }
 
@@ -220,55 +229,41 @@ void loop() {
     
     switch (state) {
         case INITIALIZATION:
-            // setting up serial
-            Serial.begin(115200);
-            delay(50); // delay to open without errors
 
             // initializing barometer
             while (!MS5611.begin()) {
                 Serial.println("Barometer not found.");
-                digitalWrite(LED_1_PIN, HIGH);
-                delay(500);
-                digitalWrite(LED_1_PIN, LOW);
+                blinkLED(BLUE_LED_PIN, 500);
                 delay(500);
             }
 
             // barometer initialization successful
             Serial.println("Barometer found.");
-            digitalWrite(LED_2_PIN, HIGH);
-            delay(500);
-            digitalWrite(LED_2_PIN, LOW);
+            blinkLED(GREEN_LED_PIN, 500);
 
             // initializing IMU
             while(!dso32.begin_I2C()){
                 Serial.println("LSM6DS032 not found.");
-                digitalWrite(LED_1_PIN, HIGH);
-                delay(500);
-                digitalWrite(LED_1_PIN, LOW);
+                blinkLED(BLUE_LED_PIN, 500);
                 delay(500);              
             }
 
             // IMU initialization successful
             Serial.println("LSM6DS032 found.");
-            digitalWrite(LED_2_PIN, HIGH);
-            delay(500);
-            digitalWrite(LED_2_PIN, LOW);
+            blinkLED(GREEN_LED_PIN, 500);
+
 
             // setting acceleromter range
-            dso32.setAccelRange(LSM6DSO32_ACCEL_RANGE_8_G);
-            Serial.println("Accelerometer range set to: +-8G");
+            dso32.setAccelRange(LSM6DSO32_ACCEL_RANGE_4_G);
 
             // setting accelrometer data rate
-            dso32.setAccelDataRate(LSM6DS_RATE_12_5_HZ);
-            Serial.println("Accelerometer data rate set to: 12.5 Hz");
+            dso32.setAccelDataRate(LSM6DS_RATE_6_66K_HZ);
 
             // setting gyroscope range
             dso32.setGyroRange(LSM6DS_GYRO_RANGE_250_DPS);
-            Serial.println("Gyro range set to: +-250 degrees/s");
 
              // setting gyroscope data rate
-            dso32.setGyroDataRate(LSM6DS_RATE_12_5_HZ);
-            Serial.print("Gyro data rate set to: 12.5 Hz");
+            dso32.setGyroDataRate(LSM6DS_RATE_6_66K_HZ);
 
   uint8_t cardType = SD_MMC.cardType();
 
@@ -399,7 +394,6 @@ void loop() {
             Serial.print("\tP:\t");
             Serial.print(MS5611.getPressure(), 2);
             Serial.print("\n");
-            delay(100);
 
             // Get a new normalized sensor event for the IMU
             sensors_event_t accel;
@@ -445,4 +439,10 @@ void loop() {
         default:
             break;
     }
+}
+
+void blinkLED(int led_pin, uint32_t time_ms) {
+  digitalWrite(led_pin, HIGH);
+  delay(time_ms);
+  digitalWrite(led_pin, LOW);
 }
