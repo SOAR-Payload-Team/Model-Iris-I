@@ -7,18 +7,16 @@
  */
 
 // including Arduino libraries
-#include "MS5611.h"
+//#include "MS5611.h"
 #include <Adafruit_LSM6DSO32.h>
 
 // defining LED pins
-#define LED_1_PIN 25
+/*#define LED_1_PIN 25
 #define LED_2_PIN 26
-
+*/
 // defining IMU SPI pins
-#define LSM_CS 9
-#define LSM_SCK 13
-#define LSM_MISO 8
-#define LSM_MOSI 16
+#define SDA 21
+#define SCL 22
 
 // setting up the state machine enumerator
 enum State_Machine {
@@ -33,7 +31,7 @@ enum State_Machine {
 };
 
 // offsets generated from CALIBRATION
-int accel_calib_factor_x;
+/*int accel_calib_factor_x;
 int accel_calib_factor_y;
 int accel_calib_factor_z;
 int gyro_calib_factor_x;
@@ -42,22 +40,22 @@ int gyro_calib_factor_z;
 
 // setting up barometer library
 MS5611 MS5611(0x77);
-
+*/
 // setting up IMU library
 Adafruit_LSM6DSO32 dso32;
 
 // Declaring the state variable
-State_Machine state = CALIBRATION;
+State_Machine state = INITIALIZATION;
 
 /**
  * @brief
 */
 void setup() {
     // setting up LED pins
-    pinMode(LED_1_PIN, OUTPUT);
+    /*pinMode(LED_1_PIN, OUTPUT);
     pinMode(LED_2_PIN, OUTPUT);
     digitalWrite(LED_1_PIN, LOW);
-    digitalWrite(LED_2_PIN, LOW);
+    digitalWrite(LED_2_PIN, LOW);*/
 
 }
 
@@ -70,7 +68,7 @@ void loop() {
             delay(50); // delay to open without errors
 
             // initializing barometer
-            while (!MS5611.begin()) {
+            /*while (!MS5611.begin()) {
                 Serial.println("Barometer not found.");
                 digitalWrite(LED_1_PIN, HIGH);
                 delay(500);
@@ -83,21 +81,21 @@ void loop() {
             digitalWrite(LED_2_PIN, HIGH);
             delay(500);
             digitalWrite(LED_2_PIN, LOW);
-
+            */
             // initializing IMU
-            while(!dso32.begin_SPI(LSM_CS, LSM_SCK, LSM_MISO, LSM_MOSI)){
+            while(!dso32.begin_I2C()){
                 Serial.println("LSM6DS032 not found.");
-                digitalWrite(LED_1_PIN, HIGH);
+                /*digitalWrite(LED_1_PIN, HIGH);
                 delay(500);
                 digitalWrite(LED_1_PIN, LOW);
-                delay(500);              
+                delay(500);      */        
             }
 
             // IMU initialization successful
             Serial.println("LSM6DS032 found.");
-            digitalWrite(LED_2_PIN, HIGH);
+            //digitalWrite(LED_2_PIN, HIGH);
             delay(500);
-            digitalWrite(LED_2_PIN, LOW);
+            //digitalWrite(LED_2_PIN, LOW);
 
             // setting acceleromter range
             dso32.setAccelRange(LSM6DSO32_ACCEL_RANGE_8_G);
@@ -116,14 +114,15 @@ void loop() {
             Serial.print("Gyro data rate set to: 12.5 Hz");
 
             // move to CALIBRATION state for now
-            state = CALIBRATION;
+            state = LAUNCH;
             break;
         case READ_MEMORY:
+        //GO INTO READ MEMORY ONCE ACCE
             break;
         case ERASE_MEMORY:
             break;
         case CALIBRATION:
-            int calib_data = 50;
+        /*    int calib_data = 50;
             int i;
             int accel_x[calib_data];
             int accel_y[calib_data];
@@ -191,13 +190,13 @@ void loop() {
             temp_sum = 0;
 
             // move to LAUNCH state for now
-            state = LAUNCH;
+            state = LAUNCH; */
             break;
         case PRELAUNCH:
             break;
         case LAUNCH:
             // poll barometer
-            MS5611.read();
+            /*MS5611.read();
 
             // print current barometer values
             Serial.print("T:\t");
@@ -206,7 +205,7 @@ void loop() {
             Serial.print(MS5611.getPressure(), 2);
             Serial.print("\n");
             delay(100);
-
+            */
              // Get a new normalized sensor event
             sensors_event_t accel;
             sensors_event_t gyro;
@@ -217,24 +216,22 @@ void loop() {
             Serial.print(temp.temperature);
             Serial.println(" deg C");
 
-          //TODO: PUT THE CALIBRATION VALUES IN THE APPROPRIATE REGISTERS ON THE LSM6DSO32 INSTEAD OF ADDING TO THE VALUES AS DONE IN THE CODE BELOW???
-
             /* Display the results (acceleration is measured in m/s^2) */
             Serial.print("\t\tAccel X: ");
-            Serial.print(accel.acceleration.x + accel_calib_factor_x);
+            Serial.print(accel.acceleration.x);
             Serial.print(" \tY: ");
-            Serial.print(accel.acceleration.y + accel_calib_factor_y);
+            Serial.print(accel.acceleration.y);
             Serial.print(" \tZ: ");
-            Serial.print(accel.acceleration.z + accel_calib_factor_z);
+            Serial.print(accel.acceleration.z);
             Serial.println(" m/s^2 ");
 
             /* Display the results (rotation is measured in rad/s) */
             Serial.print("\t\tGyro X: ");
-            Serial.print(gyro.gyro.x + gyro_calib_factor_x);
+            Serial.print(gyro.gyro.x);
             Serial.print(" \tY: ");
-            Serial.print(gyro.gyro.y + gyro_calib_factor_y);
+            Serial.print(gyro.gyro.y);
             Serial.print(" \tZ: ");
-            Serial.print(gyro.gyro.z + gyro_calib_factor_z);
+            Serial.print(gyro.gyro.z);
             Serial.println(" radians/s ");
             Serial.println();
             delay(100);
