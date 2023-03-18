@@ -175,6 +175,15 @@ uint8_t BUSY_bit_check(int CS_pin, SPIClass SPI_peripheral){
 }
 
 uint8_t erase_flash(){
-
+//ABOVE CODE CAN BE REUSED FOR THIS
 }
 //TODO: use assert statements to stop the program from running a function if an error occurs. maybe try to error handle though!
+//TODO: write erase_flash
+//TODO: move write_enable into a function 
+/*    digitalWrite(CS_pin, LOW);
+    SPI_peripheral.beginTransaction(SPISettings(26000000, MSBFIRST, SPI_MODE0));
+    SPI_peripheral.transfer(0x06); // op-code for write enable
+    digitalWrite(CS_pin, HIGH);     //de-assert the chip select line
+    SPI_peripheral.endTransaction();
+*/
+//TODO: write raed_memory
