@@ -8,11 +8,7 @@
 
 // including Arduino libraries
 #include "MS5611.h" //used for barometer
-#include <Adafruit_LSM6DSO32.h> //used for IMU
-#include "SPIMemory.h"
-
-#include "FS.h"
-#include "SD_MMC.h"
+#include <Adafruit_LSM6DSOX.h>
 
 // defining LED pins
 #define BLUE_LED_PIN 25
@@ -44,17 +40,15 @@ int gyro_calib_factor_z;
 */
 // setting up barometer library
 MS5611 MS5611(0x77);
-*/
-// setting up IMU library
-Adafruit_LSM6DSO32 dso32;
 
-// setting up flash library
-SPIFlash flash(27);
+// setting up IMU library
+Adafruit_LSM6DSOX sox;
+
 
 // Declaring the state variable
 State_Machine state = INITIALIZATION;
 
-
+/*
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
     Serial.printf("Listing directory: %s\n", dirname);
 
@@ -208,7 +202,7 @@ void testFileIO(fs::FS &fs, const char * path){
     Serial.printf("%u bytes written for %u ms\n", 2048 * 512, end);
     file.close();
 }
-
+*/
 /**
  * @brief
 */
@@ -231,7 +225,7 @@ void loop() {
         case INITIALIZATION:
 
             // initializing barometer
-            /*while (!MS5611.begin()) {
+            while (!MS5611.begin()) {
                 Serial.println("Barometer not found.");
                 blinkLED(BLUE_LED_PIN, 500);
                 delay(500);
@@ -242,29 +236,32 @@ void loop() {
             blinkLED(GREEN_LED_PIN, 500);
 
             // initializing IMU
-            while(!dso32.begin_I2C()){
-                Serial.println("LSM6DS032 not found.");
+            while(!sox.begin_I2C()){
+                Serial.println("LSM6DS0X not found.");
                 blinkLED(BLUE_LED_PIN, 500);
                 delay(500);              
             }
 
             // IMU initialization successful
-            Serial.println("LSM6DS032 found.");
+            Serial.println("LSM6DS0X found.");
             blinkLED(GREEN_LED_PIN, 500);
 
 
             // setting acceleromter range
-            dso32.setAccelRange(LSM6DSO32_ACCEL_RANGE_4_G);
+           sox.setAccelRange(LSM6DS_ACCEL_RANGE_2_G);
 
-            // setting accelrometer data rate
-            dso32.setAccelDataRate(LSM6DS_RATE_6_66K_HZ);
 
             // setting gyroscope range
-            dso32.setGyroRange(LSM6DS_GYRO_RANGE_250_DPS);
+           sox.setGyroRange(LSM6DS_GYRO_RANGE_250_DPS );
 
+
+            // setting accelrometer data rate
+         sox.setAccelDataRate(LSM6DS_RATE_12_5_HZ);
+
+         
              // setting gyroscope data rate
-            dso32.setGyroDataRate(LSM6DS_RATE_6_66K_HZ);
-
+            sox.setGyroDataRate(LSM6DS_RATE_12_5_HZ);
+  /*    
   uint8_t cardType = SD_MMC.cardType();
 
     if(cardType == CARD_NONE){
@@ -300,7 +297,7 @@ void loop() {
     testFileIO(SD_MMC, "/test.txt");
     Serial.printf("Total space: %lluMB\n", SD_MMC.totalBytes() / (1024 * 1024));
     Serial.printf("Used space: %lluMB\n", SD_MMC.usedBytes() / (1024 * 1024));
-
+    */
 
             // move to CALIBRATION state for now
             state = LAUNCH;
@@ -403,6 +400,10 @@ void loop() {
             dso32.getEvent(&accel, &gyro, &temp);
 
             /* Display the sensor results (temperature is measured in deg. C) */
+             sensors_event_t accel;
+             sensors_event_t gyro;
+            sensors_event_t temp;
+            sox.getEvent(&accel, &gyro, &temp);
             Serial.print("\t\tTemperature ");
             Serial.print(temp.temperature);
             Serial.println(" deg C");
