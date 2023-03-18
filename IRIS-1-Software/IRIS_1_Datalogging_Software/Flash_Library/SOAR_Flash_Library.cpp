@@ -44,20 +44,30 @@ uint8_t initialize_flash(int CS_pin, SPIClass SPI_peripheral, int chip_type) {
     // send a command to return the chip's IDs
     SPI_peripheral.transfer(0x9F); // 9Fh is the get JEDEC ID command
     
-    uint8_t manufacturer_ID = SPI_peripheral.transfer(0x00); // first byte returned is the manufacturer ID
-    uint16_t device_ID = SPI_peripheral.transfer16(0x0000); // next two bytes are the device ID
+    uint8_t manufacturer_ID_recieved = SPI_peripheral.transfer(0x00); // first byte returned is the manufacturer ID
+    uint16_t device_ID_recieved = SPI_peripheral.transfer16(0x0000); // next two bytes are the device ID
     
     digitalWrite(CS_pin, HIGH); //de-assert the CS line
     SPI_peripheral.endTransaction(); // end the transaction
 
     //Setting default non-IDs
-    uint16_t chip_ID = 0x1111;
-
-    // manufacturer ID for W25Q1 is 0xEF, chip ID for W25Q128 is 0x4018, chip ID for W25Q512 is 0x4020
-    if (chip_type == 128) chip_ID = 0x4018;
-    else if (chip_type == 512) chip_ID = 0x4020;
+    uint8_t manufacturer_ID = 0x11;
+    uint16_t device_ID = 0x1111;
     
-    return (manufacturer_ID == 0xEF || device_ID == chip_ID) ? 1 : 0;
+    // manufacturer ID for W25Q1 is 0xEF, chip ID for W25Q128 is 0x4018, chip ID for W25Q512 is 0x4020
+    if (chip_type == 128) {
+        manufacturer_ID == 0xEF;
+        device_ID = 0x4018;
+    }
+    else if (chip_type == 512){
+        manufacturer_ID == 0xE;
+        device_ID = 0x4020;
+    } else if (chip_type == 312){
+        manufacturer_ID == 0x1F;
+        device_ID = 0x8701;
+    }
+    
+    return (manufacturer_ID_recieved == manufacturer_ID || device_ID_recieved == device_ID) ? 1 : 0;
 }
 
 
@@ -67,13 +77,10 @@ uint8_t initialize_flash(int CS_pin, SPIClass SPI_peripheral, int chip_type) {
 /**
 * @brief Writes the number of given bytes in a buffer of 8-bit integers.
 */
-uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t current_address, uint8_t* buffer, int number_of_bytes) {
+uint32_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t current_address, uint8_t* buffer, int number_of_bytes) {
     
-    uint8_t status; // returns 0 on failure and 1 on success                    
-
     if(number_of_bytes > 256){
-        status = 0;
-        return status; //if the number of bytes to write to memory exceeds a page (256 bytes), the write_to_flash function should not execute
+        return current_address; //if the number of bytes to write to memory exceeds a page (256 bytes), the write_to_flash function should not execute and the current_address remains the same
     } 
     
     uint8_t page_program_opcode = 0;
@@ -109,7 +116,7 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t current_add
 
         current_address = address_manager(current_address, number_of_bytes); //updating the address
 
-        status = 1;
+        return current_address; //the next available address to write to is returned
     }
     else{ //if the amount of data to write does not fit within the current page, split the data into seperate packages
             
@@ -133,7 +140,7 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t current_add
         
         current_address = address_manager(current_address, remaining_bytes); //updating the address
        
-        status = 1;
+        return current_address; //the next available address to write to is returned
     }  
 
     // end the transaction
@@ -148,12 +155,12 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t current_add
 /**
 * @brief Reads from flash memory.
 */
-uint8_t read_from_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address_start, uint32_t address_end) {
+uint8_t* read_from_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address_start, uint32_t address_end) {
     // distinguishing between chip types
    
     uint8_t read_data_op_code = 0;
     uint32_t read_size = address_end - address_start;
-    uint8_t data[read_size];
+    uint8_t static data[read_size];
 
     // checks if address is 4 bytes or 3 bytes
     if (0xFF000000 & address) {
@@ -174,6 +181,8 @@ uint8_t read_from_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address_st
 
     digitalWrite(CS_pin, HIGH);
     SPI_peripheral.endTransaction();
+
+    return data;
 }
 
 
@@ -243,12 +252,28 @@ void write_enable(int CS_pin, SPICLass SPI_peripheral){
 * @brief Function used to monitor the current address.
 */
 uint32_t address_manager(uint32_t current_address, int bytes_written){
-    
-    if(bytes_written == 0) return address; //function call occured to find the value of the current address
-    else{
-        address = current_address + bytes_written; //function call occured to increment the current address to the next available address to which data can be written
-        return address;
-    }
+    address = current_address + bytes_written; //function call occured to increment the current address to the next available address to which data can be written
+    return address;
 }
-//TODO: use assert statements to stop the program from running a function if an error occurs. maybe try to error handle though!
-//TODO: write read_memory
+
+
+int main(){
+    int CS_pin = 27;
+    SPIClass SPI_peripheral;
+    int chip_type = 128;
+    uint32_t current_address = 0;
+    int size = 10;
+    uint8_t write_buffer[size] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    uint8_t* read_buffer;
+    int out1;
+
+    out1 = initialize_flash(CS_pin, SPI_peripheral, chip_type);
+    assert(out1 == 1);
+
+    current_address = write_to_flash(CS_pin, SPI_peripheral, current_address, write_buffer, size);
+
+    read_buffer = read_from_flash(CS_pin, SPI_peripheral, 0, current_address);
+
+    for(int i=0; i < size; i++) printf("%d, ", read_buffer[i]);
+    return 1; //the main function executed properly
+}
