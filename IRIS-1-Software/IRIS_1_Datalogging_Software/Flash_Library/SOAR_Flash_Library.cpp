@@ -50,7 +50,7 @@ uint8_t initialize_flash(int CS_pin, SPIClass SPI_peripheral, int chip_type) {
     
     delay(1);
     
-    // enable the write mode
+    // enable the write mode <--- THIS NEEDS TO BE CALLED EVERYTIME, IT IS RESET TO 0 AFTER THE WRITE INSTRUCTION IS CMOPLETED, SO A SEPERATE FUNCTION MAY BE REQUIRED
     digitalWrite(CS_pin, LOW);
     SPI_peripheral.beginTransaction(SPISettings(26000000, MSBFIRST, SPI_MODE0));
     SPI_peripheral.transfer(0x06); // op-code for write enable
@@ -119,7 +119,12 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t* address, u
             SPI_peripheral.transfer(buffer[i]);
         }
 
+        digitalWrite(CS_pin, HIGH); //de-assert the CS pin for the command to execute
+
         *address = *address + number_of_bytes;
+
+        //poll the BUSY bit to ensure that the data has been written before de-asserting the chip select line
+        while (BUSY_bit_check(CS_pin, SPI_peripheral)){};
         status = 1;
     }
     else{ //if the amount of data to write does not fit within the current page, split the data into seperate packages
@@ -133,27 +138,43 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t* address, u
         *address = *address + current_page_space;
         write_address = *address;
         uint32_t remaining_bytes = number_of_bytes - current_page_space;
+
         SPI_peripheral.transfer(page_program_opcode);
         SPI_peripheral.transfer(write_address);
         for (int i = 0; i < remaining_bytes; i++) {
             SPI_peripheral.transfer(buffer[i]);
         }
+        
+        digitalWrite(CS_pin, HIGH); //de-assert the CS pin for the command to execute
+
+         *address = *address + remaining_bytes;
+
+        //poll the BUSY bit to ensure that the data has been written before de-asserting the chip select line
+        while (BUSY_bit_check(CS_pin, SPI_peripheral)){};
         status = 1;
 
-    }
-    
-    //poll the BUSY bit to ensure that the data has been written before de-asserting the chip select line
-
-    SPI_peripheral.transfer(0x05);
-    uint8_t status_register = SPI.transaction(0); //obtains the values within status register 1
-    uint8_t BUSY_bit = 0x1 & status_register;
-    while (BUSY_bit == 1) {};
+    }  
 
     // end the transaction
-    digitalWrite(CS_pin, HIGH);
     SPI_peripheral.endTransaction();
 
     return status;
 }
 
+uint8_t BUSY_bit_check(int CS_pin, SPIClass SPI_peripheral){
+    
+    //SPI_peripheral.beginTransaction is not executed as BUSY_bit_check should only be executed within another function where the SPI settings have already been set
+    
+    digitalWrite(CS_pin, LOW);
+    SPI_peripheral.transfer(0x05);
+    uint8_t status_register = SPI.transaction(0); //obtains the values within status register 1
+    uint8_t BUSY_bit = 0x1 & status_register;
+    digitalWrite(CS_pin, HIGH);
+
+    return BUSY_bit;
+}
+
+uint8_t erase_flash(){
+
+}
 //TODO: use assert statements to stop the program from running a function if an error occurs. maybe try to error handle though!
