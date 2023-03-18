@@ -152,7 +152,9 @@ uint8_t read_from_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address_st
     // distinguishing between chip types
    
     uint8_t read_data_op_code = 0;
-    
+    uint32_t read_size = address_end - address_start;
+    uint8_t data[read_size];
+
     // checks if address is 4 bytes or 3 bytes
     if (0xFF000000 & address) {
         read_data_op_code = 0x13; // for 4 byte address (W25Q512 only)
@@ -162,12 +164,16 @@ uint8_t read_from_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address_st
         int address_counter = 3; //address is 24 bits
     }
     // begin the transaction
-    digitalWrite(CS_pin LOW);
+    digitalWrite(CS_pin, LOW);
     SPI_peripheral.beginTransaction(SPISettings(26000000, MSBFIRST, SPI_MODE0)); // rising edge of clock, MSB first
 
      // send a command to read data starting at address_start
-    SPI_peripheral.transfer(read_data_op_code);
-    SPI_peripheral.transfer(start_address);
+    SPI_peripheral.transfer(read_data_op_code); //transferring operation code to read data from flash memory
+    for(int i = 0; i < address_counter; i++) SPI_peripheral.transfer(start_address >> 8*i); //transferring address
+    for(int i=0; i < read_size; i++) data[i] = SPI_peripheral.transfer(0x00); //collecting data from flash memory
+
+    digitalWrite(CS_pin, HIGH);
+    SPI_peripheral.endTransaction();
 }
 
 
