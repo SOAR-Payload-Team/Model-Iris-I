@@ -41,7 +41,7 @@ uint8_t initialize_flash(int CS_pin, SPIClass SPI_peripheral, int chip_type) {
     // send a command to return the chip's IDs
     SPI_peripheral.transfer(0x9F); // 9Fh is the get JEDEC ID command
     
-    uint8_t manufacturer_ID = SPI_peripheral.transfer(0x00); // first byte returned is the manufacturer ID
+    uint8_t manufacturer_ID_recieved = SPI_peripheral.transfer(0x00); // first byte returned is the manufacturer ID
     uint16_t device_ID = SPI_peripheral.transfer16(0x0000); // next two bytes are the device ID
     
     // end the transaction
@@ -54,21 +54,43 @@ uint8_t initialize_flash(int CS_pin, SPIClass SPI_peripheral, int chip_type) {
     digitalWrite(CS_pin, LOW);
     SPI_peripheral.beginTransaction(SPISettings(26000000, MSBFIRST, SPI_MODE0));
     SPI_peripheral.transfer(0x06); // op-code for write enable
+    digitalWrite(CS_pin, HIGH);     //de-assert the chip select line
     SPI_peripheral.endTransaction();
-    digitalWrite(CS_pin, HIGH);
     
-    // manufacturer ID is 0xEF, chip ID for W25Q128 is 0x4018, chip ID for W25Q512 is 0x4020
-    uint16_t chip_ID = 0x1111; // a non-ID
-    if (chip_type == 128) chip_ID = 0x4018;
-    else if (chip_type == 512) chip_ID = 0x4020;
+    //Setting default non-IDs
+    uint16_t chip_ID = 0x1111;
+    uint8_t manufacturer_ID = 0x11
+
+    // manufacturer ID for W25Q1 is 0xEF, chip ID for W25Q128 is 0x4018, chip ID for W25Q512 is 0x4020
+    // manufacturer ID for AT25SF is 0x1F, chip ID for AT25SF321B is 0x8701
+    if (chip_type == 128) {
+        manufacturer_ID == 0xEF;
+        chip_ID = 0x4018;
+    }
+    else if (chip_type == 512) {
+        manufacturer_ID == 0xEF;
+        chip_ID = 0x4020;
+    }
+    else if (chip_type == 321) {
+        manufacturer_ID == 0x1F;
+        chip_ID = 0x8701;
+    }
     
-    return (manufacturer_ID == 0xEF || device_ID == chip_ID) ? 1 : 0;
+    return (manufacturer_ID_recieved == manufacturer_ID || device_ID == chip_ID) ? 1 : 0;
 }
 
 /**
 * @brief Writes the number of given bytes in a buffer of 8-bit integers
 */
-uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address, uint8_t* buffer, int number_of_bytes) {
+uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t* address, uint8_t* buffer, int number_of_bytes) {
+    
+    uint8_t status; // returns 0 on failure and 1 on success                    
+
+    if(number_of_bytes > 256){
+        status = 1;
+        return status; //if the number of bytes to write to memory exceeds a page (256 bytes), the write_to_flash function should not execute
+    } 
+    
     uint8_t page_program_opcode = 0;
     
     // checks if address is 4 bytes or 3 bytes
@@ -81,14 +103,57 @@ uint8_t write_to_flash(int CS_pin, SPIClass SPI_peripheral, uint32_t address, ui
     // begin the transaction
     digitalWrite(CS_pin, LOW);
     SPI_peripheral.beginTransaction(SPISettings(26000000, MSBFIRST, SPI_MODE0)); // rising edge of clock, MSB first
- 
-    // add some stuff here
     
-    for (int i = 0; i < number_of_bytes; i++) {
-        SPI_peripheral.transfer(buffer[i]);
+    //add code here
+
+    uint32_t end_current_page = (0xFFFFFF00 & *address) + 0xFF; //isolate the most significant bits and add 1 page size (0xFF = 256 bytes)
+    uint32_t current_page_space = end_current_page - *address;
+    uint32_t write_address;
+
+    if (current_page_space >= number_of_bytes){ //if the amount of data to write fits within the current page, write normally
+        write_address = *address;
+
+        SPI_peripheral.transfer(page_program_opcode);
+        SPI_peripheral.transfer(write_address);
+        for (int i = 0; i < number_of_bytes; i++) {
+            SPI_peripheral.transfer(buffer[i]);
+        }
+
+        *address = *address + number_of_bytes;
+        status = 1;
+    }
+    else{ //if the amount of data to write does not fit within the current page, split the data into seperate packages
+        write_address = *address;
+        SPI_peripheral.transfer(page_program_opcode);
+        SPI_peripheral.transfer(write_address);
+        for (int i = 0; i < current_page_space; i++) {
+            SPI_peripheral.transfer(buffer[i]);
+        }
+
+        *address = *address + current_page_space;
+        write_address = *address;
+        uint32_t remaining_bytes = number_of_bytes - current_page_space;
+        SPI_peripheral.transfer(page_program_opcode);
+        SPI_peripheral.transfer(write_address);
+        for (int i = 0; i < remaining_bytes; i++) {
+            SPI_peripheral.transfer(buffer[i]);
+        }
+        status = 1;
+
     }
     
+    //poll the BUSY bit to ensure that the data has been written before de-asserting the chip select line
+
+    SPI_peripheral.transfer(0x05);
+    uint8_t status_register = SPI.transaction(0); //obtains the values within status register 1
+    uint8_t BUSY_bit = 0x1 & status_register;
+    while (BUSY_bit == 1) {};
+
     // end the transaction
-    SPI_peripheral.endTransaction();
     digitalWrite(CS_pin, HIGH);
+    SPI_peripheral.endTransaction();
+
+    return status;
 }
+
+//TODO: use assert statements to stop the program from running a function if an error occurs. maybe try to error handle though!
