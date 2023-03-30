@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\Owner\Desktop\SOAR\Model-Iris-I\BatteryBoard\BatteryBoard.PcbDoc
-Date     : 2/10/2023
-Time     : 8:39:57 PM
+PCB File : H:\Github\NasihNazeem\SOAR\Model-Iris-I\BatteryBoard\BatteryBoard.PcbDoc
+Date     : 2023-03-07
+Time     : 11:30:52 AM
 
 Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
 Rule Violations :0
@@ -66,4 +66,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01

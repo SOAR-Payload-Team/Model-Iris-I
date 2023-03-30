@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------------------
-Gerber File Extension Report For: BatteryBoard.GBR   2023-02-18  11:55:28 AM
+Gerber File Extension Report For: BatteryBoard.GBR   2023-03-07  11:30:32 AM
 ------------------------------------------------------------------------------------------
 
 
@@ -17,10 +17,9 @@ Layer Extension     Layer Description
 .GM1                Board                                   
 .GM2                Route Tool Path                         
 .GM3                Dimensions                              
-.GM5                Bottom 3D Body                          
-.GM13               Top Assembly                            
-.GM14               Bottom Assembly                         
-.GM15               Top Courtyard                           
+.GM19               Fab Notes                               
+.GM20               Assembly Notes                          
+.GKO                Keep-Out Layer                          
 .GPT                Top Pad Master                          
 .GPB                Bottom Pad Master                       
 ------------------------------------------------------------------------------------------
